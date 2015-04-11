@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
     with ThreadPoolExecutor(max_workers=30) as executor:
         for name in urls:
-            file_path = '../wiki/' + name
+            file_path = '../wiki/' + name + '.html'
             if os.path.isfile(file_path): continue
             executor.submit(download, file_path, urls[name]);
 
