@@ -18,7 +18,7 @@ def download(path, url):
 
 if __name__ == "__main__":
     urls = {}
-    with open('../names.mat') as f:
+    with open('../names.txt') as f:
         urls = dict(map(lambda name: (name.strip(), 'http://en.wikipedia.org/wiki/' + name.replace(' ', '_')), f))
 
 
