@@ -7,7 +7,7 @@ Abbas Kiarostami
 Abdel Aziz Al-Hakim
 Abdoulaye Wade
 Abdulaziz Kamilov
-Abdullah 1.mat
+Abdullah
 Abdullah Ahmad Badawi
 Abdullah Gul
 Abdullatif Sener
@@ -219,7 +219,7 @@ Brett Hull
 Brian Billick
 Brian Cashman
 Brian Clemens
-Cabas 0.mat
+Cabas
 Caio Blat
 Calbert Cheaney
 Calista Flockhart
@@ -571,7 +571,7 @@ Eve Ensler
 Evo Morales
 Farouk Kaddoumi
 Fatmir Limaj
-Fazal-ur-Rehman 5.mat
+Fazal-ur-Rehman
 Federico Trillo
 Felicity Huffman
 Felipe De Borbon
@@ -719,9 +719,7 @@ Ilie Nastase
 Imam Samudra
 Imelda Marcos
 Imre Kertasz
-Inam-ul-Haq 1.mat
-Inam-ul-Haq 2.mat
-Inam-ul-Haq 3.mat
+Inam-ul-Haq
 Ingrid Betancourt
 Inocencio Arias
 Ion Tiriac
@@ -986,7 +984,7 @@ Lynne Thigpen
 Lynn Redgrave
 Mack Brown
 Madeleine Albright
-Madonna 5.mat
+Madonna
 Mae Jemison
 Maggie Cheung
 Maggie Smith
@@ -1393,7 +1391,7 @@ Scott Blum
 S Jayakumar
 Tabare Vazquez
 Taha Yassin Ramadan
-Takaloo 4.mat
+Takaloo
 Takashi Sorimachi
 Takashi Yamamoto
 Takeo Fukui
@@ -1429,7 +1427,7 @@ Terry Semel
 Tessa Jowell
 Thabo Mbeki
 Thaksin Shinawatra
-Thalia 3.mat
+Thalia
 Theodore Tweed Roosevelt
 Theo Epstein
 Theresa Gattung
