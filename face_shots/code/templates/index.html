@@ -1,0 +1,27 @@
+$def with (query, results)
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>FaceShot Query</title>
+    <link rel="stylesheet" type="text/css" href="static/face_shots.css">
+</head>
+<body>
+<form name="query" method="get">
+    <p>Enter a Solr query to search the Face DB collection (see <a href="https://lucene.apache.org/core/2_9_4/queryparsersyntax.html" target="_blank" style="margin-right:0">
+        https://lucene.apache.org/core/2_9_4/queryparsersyntax.html</a>)
+    </p>
+
+    <p><input name="query" type="text" value="$:query" style="width: 500px;"></p>
+
+    <p><input type="submit"></p>
+</form>
+<p>Results:</p>
+
+<p>$:results</p>
+
+<iframe id="video" name="video"></iframe>
+
+<iframe id="wiki" name="wiki"></iframe>
+
+</body>
+</html>

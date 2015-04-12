@@ -1,0 +1,26 @@
+p {
+    margin: 25px;
+}
+
+a {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#video {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    width: 240px;
+    height: 180px;
+    border: none;
+}
+
+#wiki {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 600px;
+    border: none;
+    height: calc(100% - 340px);
+}
