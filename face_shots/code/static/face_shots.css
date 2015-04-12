@@ -1,3 +1,7 @@
+body {
+    min-width: 800px;
+}
+
 p {
     margin: 25px;
 }
@@ -7,13 +11,19 @@ a {
     margin-right: 10px;
 }
 
+#query {
+    max-width: calc(100% - 300px);
+    min-width: 380px;
+}
+
 #video {
     position: fixed;
-    top: 100px;
+    top: 20px;
     right: 20px;
     width: 240px;
     height: 180px;
     border: none;
+    max-width: calc(100% - 500px);
 }
 
 #wiki {
@@ -22,5 +32,6 @@ a {
     right: 20px;
     width: 600px;
     border: none;
-    height: calc(100% - 340px);
+    height: calc(100% - 260px);
+    width: calc(100% - 500px);
 }

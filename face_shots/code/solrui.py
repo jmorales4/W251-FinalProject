@@ -41,7 +41,7 @@ class index:
 
         # Pick off number of docs
         num_docs = response['response']['numFound']
-        result = '<p>Number of results found: {}</p>'.format(num_docs)
+        result = '<p>{} results found</p>'.format(num_docs)
 
         # Add a line for each doc
         if num_docs > 0:
@@ -60,11 +60,11 @@ class index:
         folder = './static/gifs/' + person.replace(' ', '_')
         if not os.path.exists(folder): return None
 
-        html = '<p><a href="./static/wiki/{0}" target="wiki">{1}</a>'.format(filename, person)
+        html = '<p>{0:.4f}<a href="./static/wiki/{1}" target="wiki">{2}</a>'.format(score, filename, person)
         for gif in os.listdir(folder):
-            html += ' <a href="{0}/{1}" target="video">{1}</a>'.format(folder, gif)
+            html += ' <a class=vid_link href="{0}/{1}" target="video">{1}</a>'.format(folder, gif)
 
-        html += 'Score: {:.4f}</p>'.format(score)
+        html += '</p>'
         return html
 
 
