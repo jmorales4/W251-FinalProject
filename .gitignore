@@ -5,3 +5,4 @@ face_shots/code/.idea/
 face_shots/code/static/gifs/
 face_shots/gifs/
 face_shots/code/static/wiki/
+*.pyc

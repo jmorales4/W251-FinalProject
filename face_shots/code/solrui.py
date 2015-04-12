@@ -61,7 +61,7 @@ class index:
         if not os.path.exists(folder): return None
 
         html = '<p>{0:.4f}<a href="./static/wiki/{1}" target="wiki">{2}</a>'.format(score, filename, person)
-        for gif in os.listdir(folder):
+        for gif in sorted(os.listdir(folder)):
             html += ' <a class=vid_link href="{0}/{1}" target="video">{1}</a>'.format(folder, gif)
 
         html += '</p>'
