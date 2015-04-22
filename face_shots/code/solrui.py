@@ -55,14 +55,20 @@ class index:
         resource_name = doc['resourcename'][0]
         filename = resource_name[resource_name.rfind('/') + 1:]
         person = filename[:filename.rfind('.')]
+        filepath = 'http://en.wikipedia.org/wiki/' + person.replace(' ', '_')
         score = doc['score']
 
         folder = './static/gifs/' + person.replace(' ', '_')
         if not os.path.exists(folder): return None
 
-        html = '<p>{0:.4f}<a href="./static/wiki/{1}" target="wiki">{2}</a>'.format(score, filename, person)
-        for gif in sorted(os.listdir(folder)):
-            html += ' <a class=vid_link href="{0}/{1}" target="video">{1}</a>'.format(folder, gif)
+        videos = sorted(os.listdir(folder))
+
+        html = '<p>{0:.4f}<a href="{1}" target="wiki" onclick="showVideo(\'{3}/{4}\')">{2}</a>'\
+            .format(score, filepath, person, folder, videos[0])
+
+        for video in videos:
+            html += ' <a class=vid_link href="{0}/{1}" target="video" onclick="showWiki(\'{2}\');">{3}</a>'\
+                .format(folder, video, filepath, '<img src=./static/movie.png>')
 
         html += '</p>'
         return html
