@@ -52,26 +52,30 @@ class index:
 
     # Given a doc, create a line of results
     def format_doc_result(self, doc):
-        resource_name = doc['resourcename'][0]
-        filename = resource_name[resource_name.rfind('/') + 1:]
-        person = filename[:filename.rfind('.')]
-        filepath = 'http://en.wikipedia.org/wiki/' + person.replace(' ', '_')
-        score = doc['score']
+        try:
+            resource_name = doc['resourcename'][0]
+            filename = resource_name[resource_name.rfind('/') + 1:]
+            person = filename[:filename.rfind('.')]
+            filepath = 'http://en.wikipedia.org/wiki/' + person.replace(' ', '_')
+            score = doc['score']
 
-        folder = './static/gifs/' + person.replace(' ', '_')
-        if not os.path.exists(folder): return None
+            folder = './static/gifs/' + person.replace(' ', '_')
+            if not os.path.exists(folder): return None
 
-        videos = sorted(os.listdir(folder))
+            videos = sorted(os.listdir(folder))
 
-        html = '<p>{0:.4f}<a href="{1}" target="wiki" onclick="showVideo(\'{3}/{4}\')">{2}</a>'\
-            .format(score, filepath, person, folder, videos[0])
+            html = '<p>{0:.4f}<a href="{1}" target="wiki" onclick="showVideo(\'{3}/{4}\')">{2}</a>' \
+                .format(score, filepath, person, folder, videos[0])
 
-        for video in videos:
-            html += ' <a class=vid_link href="{0}/{1}" target="video" onclick="showWiki(\'{2}\');">{3}</a>'\
-                .format(folder, video, filepath, '<img src=./static/movie.png>')
+            for video in videos:
+                html += ' <a class=vid_link href="{0}/{1}" target="video" onclick="showWiki(\'{2}\');">{3}</a>' \
+                    .format(folder, video, filepath, '<img src=./static/movie.png>')
 
-        html += '</p>'
-        return html
+            html += '</p>'
+            return html
+
+        except Exception as e:
+            return None
 
 
 if __name__ == "__main__":
