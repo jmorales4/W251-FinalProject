@@ -1,0 +1,8 @@
+$def with (name, screen_name, profile_image_url, created_at, text)
+<div class="tweet">
+  <img id="tweet_profile_image" src="$:profile_image_url"/>
+  <div id="tweet_name">$:name</div>
+  <div id="tweet_screen_name">@$:screen_name</div>
+  <div id="tweet_created_at">$:created_at</div>
+  <div id="tweet_text">$:text</div>
+</div>

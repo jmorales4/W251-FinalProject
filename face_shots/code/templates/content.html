@@ -1,0 +1,19 @@
+$def with (name, image_path, wiki_path, tweet_path, video_path)
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="static/face_shots.css">
+</head>
+<body>
+  <img id="image" src="$:image_path">
+  <div id="name">$:name</div>
+  <div id="find_links">
+    <a id="like">Find celebrities like $:name</a><br>
+    <a id="look_like">Find celebrities who look like $:name</a>
+  </div>
+  <a id="wiki" href="$:wiki_path" target="media"><img class="link_image" src="static/wikipedia.png"></a>
+  <a id="videos" href="$:video_path" target="media"><img class="link_image" src="static/movie.png"></a>
+  <a id="tweets" href="$:tweet_path" target="media"><img class="link_image" src="static/twitter.png"></a>
+  <iframe id="media" name="media"></iframe>
+</body>
+</html>
