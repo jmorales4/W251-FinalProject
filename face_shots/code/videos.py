@@ -15,7 +15,7 @@ class page:
         person = input.person if input.has_key('person') else ''
 
         # Get the latest videos
-        videopath = '/static/gifs/' + person
+        videopath = './static/gifs/' + person
         try:
             videos = sorted(os.listdir(videopath))
 
