@@ -41,7 +41,7 @@ p {
 #results {
     position: absolute;
     left: 0px;
-    top: 140px;
+    top: 150px;
     width: 300px;
     height: calc(100% - 180px);
     min-height: 200px;
