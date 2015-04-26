@@ -15,12 +15,17 @@ class page:
         person = input.person if input.has_key('person') else ''
 
         # Get the latest videos
-        videopath = './static/gifs/' + person
-        videos = sorted(os.listdir(videopath))
+        videopath = '/static/gifs/' + person
+        try:
+            videos = sorted(os.listdir(videopath))
 
-        video_html = ''
-        for i, video in enumerate(videos):
-            video_html = video_html + str(render_video(i, videopath + '/' + video))
+            video_html = ''
+            for i, video in enumerate(videos):
+                video_html = video_html + str(render_video(i, videopath + '/' + video))
+
+        except Exception as e:
+            print e
+            return 0, '<p>{0}</p>'.format(e)
 
             # And render the results via templates/videos.html
         return render_videos(person, video_html)
