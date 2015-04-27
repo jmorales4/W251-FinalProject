@@ -1,15 +1,15 @@
 # class to manage the main page
 import cgi
 import json
-import os
 import urllib
 import urllib2
+from pymongo import MongoClient
+
 import web
 
+
 # URL of the Solr API, prepopulated to get: all rows, score, and TBD query
-# solr_get = 'http://127.0.0.1:8983/solr/face_db/select?fl=*,score&rows=2147483647&wt=json&q='
 solr_get = 'http://158.85.218.52:8983/solr/face_db/select?fl=*,score&rows=2147483647&wt=json&q='
-solr_get_mlt = 'http://158.85.218.52:8983/solr/face_db/select?mlt=true&fl=*,score&rows=2147483647&wt=json&q='
 
 render = web.template.render('templates/').main
 
@@ -30,7 +30,9 @@ class page:
     # Run the query
     def run_query(self, query):
         try:
-            response = {}
+            if query.startswith('looks like:'):
+                return self.looks_like(query[query.find(':') + 1:])
+
             like_query = query.startswith('like:')
             if (like_query):
                 name = query[query.find(':') + 1:]
@@ -41,15 +43,13 @@ class page:
 
             existing_keys = []
             results = filter(lambda result: result is not None and not (like_query and name in result),
-                             map(lambda doc: self.format_doc_result(doc, existing_keys),
-                                 response['response']['docs']))
+                             map(lambda doc: self.format_doc_result(doc, existing_keys), response['response']['docs']))
 
             return len(results), reduce(lambda s1, s2: s1 + s2, results, '')
 
         except Exception as e:
             print e
             return 0, '<p class="result">{0}</p>'.format(e)
-
 
     # Given a doc, create a line of results
     def format_doc_result(self, doc, existing_keys):
@@ -77,3 +77,18 @@ class page:
             print e
             return '<p class="result">{0}</p>'.format(e)
 
+
+    # Find celebrities who look like X
+    def looks_like(self, name):
+        try:
+            client = MongoClient("158.85.218.52")
+            results = client.celebritywatch.faces.find({"$and": [
+                {"celebrity": "Elizabeth_Taylor"},
+                {"similarity": {"$lt": 0.20}}
+            ]})
+
+            return results.count(), results
+
+        except Exception as e:
+            print e
+            return 0, '<p class="result">{0}</p>'.format(e)
