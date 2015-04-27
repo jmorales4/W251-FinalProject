@@ -81,14 +81,19 @@ class page:
     # Find celebrities who look like X
     def looks_like(self, name):
         try:
-            client = MongoClient("158.85.218.52")
+            key = name.replace(' ', '_');
+            client = MongoClient()
             results = client.celebritywatch.faces.find({"$and": [
-                {"celebrity": "Elizabeth_Taylor"},
+                {"celebrity": key},
                 {"similarity": {"$lt": 0.20}}
             ]})
 
-            return results.count(), results
-
+            # { "_id" : ObjectId("553dafabc1b1112ebaf224f3"), "celebrity" : "Paul_Walker", "peer" : "Lincoln_Chafee", "similarity" : 0.18264199, "image location" : "/data/all_celebrities/Lincoln_Chafee/Lincoln_Chafee.jpg" }
+            return results.count(), map(
+                lambda result:
+                    '<p>{0:.4f}<a class="result" href="/content?key={1}" target="content">{2}</a></p>'
+                        .format(1 - result["similarity"], result["peer"], result["peer"].replace('_', ' ')),
+                results)
         except Exception as e:
             print e
             return 0, '<p class="result">{0}</p>'.format(e)
