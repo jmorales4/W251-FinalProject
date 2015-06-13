@@ -1,0 +1,31 @@
+$def with (name, image_path, wiki_path, tweet_path, video_path)
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="static/face_shots.css">
+  <script src="static/jquery-2.1.3.min.js"></script>
+  <script language="javascript">
+    function find_like(name){
+      jQuery('#query', window.parent.document).val('like:' + name);
+      jQuery('#query_form', window.parent.document).submit();
+    }
+    function looks_like(name){
+      jQuery('#query', window.parent.document).val('looks like:' + name);
+      jQuery('#query_form', window.parent.document).submit();
+    }
+  </script>
+</head>
+<body>
+<img id="image" src="$:image_path">
+
+<div id="name">$:name</div>
+<div id="find_links">
+    <p class="find_link" ><a id="like" href="javascript:find_like('$:name')">Celebrities like $:name</a></p>
+    <p class="find_link"><a id="look_like" href="javascript:looks_like('$:name')">Celebrities who LOOK like $:name</a></p>
+</div>
+<a id="wiki" href="$:wiki_path" target="media"><img class="link_image" src="static/wikipedia.png"></a>
+<a id="videos" href="$:video_path" target="media"><img class="link_image" src="static/movie.png"></a>
+<a id="tweets" href="$:tweet_path" target="media"><img class="link_image" src="static/twitter.png"></a>
+<iframe id="media" name="media"></iframe>
+</body>
+</html>
